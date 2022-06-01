@@ -1,0 +1,22 @@
+.root {
+  @apply my-10 rounded-[20px] overflow-hidden bg-[#D5E3ED] border border-[#D5E3ED];
+}
+
+.gridWrapper {
+  @apply grid gap-[2px] grid-cols-2;
+  @apply md:grid-cols-5;
+}
+
+.gridElement {
+  @apply transition-colors px-6 py-8 bg-white;
+  @apply hover:bg-[#D5E3ED] hover:cursor-pointer;
+}
+
+.link {
+  @apply flex flex-col justify-center items-center space-y-4 text-center;
+}
+
+.linkLabel {
+  @apply text-sm;
+  @apply sm:text-base;
+}

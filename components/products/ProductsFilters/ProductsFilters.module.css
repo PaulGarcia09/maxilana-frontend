@@ -1,0 +1,30 @@
+.root {
+  @apply transition fixed inset-0 bottom-0 top-[104px] shadow-lg flex z-20;
+  @apply bg-white pb-1 transform translate-y-[120%];
+  @apply lg:opacity-100 lg:rounded lg:translate-y-0 lg:static;
+}
+
+.visible {
+  @apply translate-y-0;
+}
+
+.titleBar {
+  @apply flex justify-between items-center p-4 border-b;
+}
+
+.scroll {
+  @apply overflow-auto divide-y divide-gray-200 space-y-4 flex-1;
+}
+
+.categories {
+  @apply mb-6;
+
+  & .categoryItem {
+    @apply px-4 py-2 block hover:bg-brand/5;
+  }
+
+  & .categorySelected {
+    @apply bg-brand/5;
+  }
+
+}

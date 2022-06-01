@@ -1,0 +1,21 @@
+/** DROPDOWN **/
+.root {
+  @apply relative;
+}
+
+.wrapper {
+  @apply absolute z-10 top-[105%] w-max bg-white rounded-sm shadow-lg p-2 pointer-events-none;
+  @apply transform -translate-y-2 opacity-0 transition-all;
+}
+
+.wrapperLeft {
+  @apply left-0;
+}
+
+.wrapperRight {
+  @apply right-0;
+}
+
+.wrapperVisible {
+  @apply opacity-100 translate-y-0 pointer-events-auto;
+}

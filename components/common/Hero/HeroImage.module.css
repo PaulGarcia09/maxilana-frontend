@@ -1,0 +1,23 @@
+.picture {
+  @apply absolute w-full h-full;
+}
+
+.img {
+  @apply absolute object-cover w-full h-full;
+}
+
+.placeholder {
+  @apply block absolute w-full h-full overflow-hidden;
+}
+
+.placeholderImg {
+  @apply block object-cover w-full h-full filter blur-sm transform scale-125;
+}
+
+.hidePlaceholder {
+  @apply opacity-0;
+
+  & .placeholderImg {
+    @apply scale-100;
+  }
+}

@@ -1,0 +1,49 @@
+.root {
+  @apply relative;
+
+  &:after,
+  &:before {
+    content: ' ';
+    @apply absolute inset-y-0 w-6 md:w-24 pointer-events-none block;
+  }
+
+  &:hover .rightButton,
+  &:hover .leftButton {
+    @apply flex;
+  }
+}
+
+.left:before {
+  content: ' ';
+  @apply left-0 bg-gradient-to-l from-surface/0 to-surface z-10;
+}
+
+.right:after {
+  content: ' ';
+  @apply right-0 bg-gradient-to-r from-surface/0 to-surface;
+}
+
+.scroll {
+  @apply scrollbar-hide;
+  @apply flex flex-row gap-1 overflow-x-auto max-w-full mb-12 justify-items-stretch items-stretch;
+}
+
+.item {
+  @apply min-w-[150px];
+  @apply md:min-w-[180px];
+  @apply xl:min-w-[200px];
+}
+
+.button {
+  @apply bg-accent shadow w-[40px] h-[40px] rounded-full absolute top-1/2 -translate-y-1/2;
+  @apply hidden items-center justify-center z-10 hover:bg-accent-dark;
+  @apply xl:w-[64px] xl:h-[64px]
+}
+
+.leftButton {
+  @apply left-0 xl:left-[-32px];
+}
+
+.rightButton {
+  @apply right-0 xl:right-[-32px];
+}

@@ -1,0 +1,23 @@
+.root {
+  @apply rounded bg-white border transition-all;
+}
+
+.root:hover {
+  box-shadow: 0px 4px 16px 0px rgba(18, 69, 117, 0.09);
+}
+
+.root:hover .linkIcon {
+  @apply bg-action-primary text-white;
+}
+
+.wrapper {
+  @apply px-6 py-6 flex justify-between items-center space-x-4 h-full;
+}
+
+.titleWrap {
+  @apply flex-1 text-left;
+}
+
+.linkIcon {
+  @apply rounded-full bg-surface flex justify-center items-center min-w-[32px] min-h-[32px];
+}

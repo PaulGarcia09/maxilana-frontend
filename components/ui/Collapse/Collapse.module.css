@@ -1,0 +1,11 @@
+.header {
+  @apply py-4 flex justify-between items-center;
+}
+
+.indicator {
+  @apply transition transition-all;
+}
+
+.collapsed .indicator {
+  @apply transform -rotate-180;
+}

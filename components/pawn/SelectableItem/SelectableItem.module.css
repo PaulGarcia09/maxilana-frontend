@@ -1,0 +1,20 @@
+.root {
+  @apply flex flex-row items-center rounded border border-surface overflow-hidden;
+  @apply hover:cursor-pointer;
+}
+
+.root:hover {
+  @apply bg-surface-dark border-surface-dark;
+}
+
+.wrapImage {
+  @apply w-[100px] h-[80px] relative;
+}
+
+.wrapBody {
+  @apply flex-grow flex flex-row items-center px-4 py-2 h-full;
+}
+
+.label {
+  @apply font-semibold text-base text-primary;
+}

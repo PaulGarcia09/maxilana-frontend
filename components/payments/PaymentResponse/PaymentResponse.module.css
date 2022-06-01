@@ -1,0 +1,47 @@
+.root {
+  --borderColor: #0c5e9c26;
+  @apply container mx-auto flex flex-col items-start justify-center;
+  @apply sm:max-w-xl;
+  @apply lg:max-w-2xl;
+}
+
+.header {
+  border-color: var(--borderColor);
+  @apply bg-white px-4 py-12 text-center flex-grow;
+  @apply sm:rounded sm:border;
+}
+
+.headerTitle {
+  @apply text-2xl text-center my-4;
+}
+
+.headerCopy {
+  @apply text-center;
+}
+
+.headerContext {
+  @apply mt-4;
+}
+
+.body {
+  @apply text-center py-5 w-full;
+  @apply sm:py-8;
+}
+
+.footer {
+  border-color: var(--borderColor);
+  @apply bg-white p-5 border-t w-full;
+  @apply sm:rounded sm:border;
+}
+
+.footerTitle {
+  @apply text-base mb-4;
+}
+
+.footerCopy {
+  @apply text-xs;
+}
+
+.footerCopy > a {
+  @apply text-price;
+}

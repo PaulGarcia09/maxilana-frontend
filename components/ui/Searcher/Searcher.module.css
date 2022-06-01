@@ -1,0 +1,39 @@
+.root {
+  @apply bg-brand-darker rounded-full flex flex-row;
+}
+
+.inputWrap,
+.selectorWrap {
+  @apply flex-1;
+}
+
+.selectorWrap {
+  @apply relative z-10;
+  @apply sm:max-w-[260px];
+}
+
+.inputControl {
+  @apply bg-transparent p-2 text-base text-white w-full h-full;
+  @apply placeholder-shown:text-white focus:outline-none;
+}
+
+.locationDropdown {
+  @apply border-l border-brand flex flex-row justify-between items-center pr-2;
+  @apply hover:cursor-pointer;
+}
+
+.arrowIndicator {
+  @apply transition-all;
+}
+
+.arrowUp {
+  @apply transform -rotate-180;
+}
+
+.button {
+  @apply bg-action-primary text-white py-2 px-3 rounded-r-full inline-flex items-center;
+}
+
+.categoryItem {
+  @apply flex flex-row items-center space-x-2 px-1 py-2 text-sm text-brand-darker cursor-pointer rounded-sm hover:bg-brand/10;
+}

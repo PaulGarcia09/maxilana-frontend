@@ -1,0 +1,39 @@
+.root {
+  @apply relative;
+}
+
+.productRow {
+  @apply flex flex-row mb-4;
+}
+
+.productImage {
+  @apply relative w-16 h-16 rounded-sm overflow-hidden bg-gray-300 mr-4 border-gray-300 border;
+}
+
+.productTitle {
+  @apply text-sm;
+}
+
+.productPrice {
+  @apply font-semibold text-lg text-price;
+}
+
+.productPriceSale {
+  @apply mr-3 text-danger;
+}
+
+.productCompareAtPrice {
+  @apply text-discount line-through;
+}
+
+.rowSplit {
+  @apply flex flex-row justify-between items-center;
+}
+
+.amount {
+  @apply text-primary;
+}
+
+.amountFeat {
+  @apply text-2xl font-semibold;
+}

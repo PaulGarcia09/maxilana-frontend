@@ -1,0 +1,29 @@
+.root {
+  @apply block relative mb-4;
+}
+
+.list {
+  @apply flex justify-start items-center;
+}
+
+.listItem {
+  @apply py-2 pr-2;
+}
+
+.itemLabel {
+  @apply text-secondary text-sm;
+}
+
+.listItem::after {
+  content: '>';
+  @apply inline-block ml-2;
+}
+
+.listItem:last-of-type::after {
+  content: '';
+  @apply m-0;
+}
+
+.listItem:last-of-type > .itemLabel {
+  color: #000;
+}

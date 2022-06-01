@@ -1,0 +1,107 @@
+.root {
+  @apply bg-surface rounded text-primary tracking-wide inline-flex flex-row space-x-2 items-center shadow px-4 py-3;
+}
+
+.root:hover,
+.root:active {
+  @apply bg-surface-dark;
+}
+
+.root:active {
+  @apply shadow-inner;
+}
+
+.root:disabled,
+.disabled {
+  @apply bg-surface-light text-disabled pointer-events-none;
+}
+
+.label {
+  @apply text-xs font-semibold uppercase;
+}
+
+.sm {
+  padding: 7px 12px;
+}
+
+.lg {
+  padding: 16px 24px;
+}
+
+.primary {
+  @apply bg-accent;
+}
+
+.primary:hover,
+.primar:active {
+  @apply bg-accent-dark text-primary;
+}
+
+.primary:disabled {
+  @apply bg-accent-light text-secondary pointer-events-none;
+}
+
+.secondary {
+  @apply bg-action-primary text-white;
+}
+
+.secondary:hover,
+.secondary:active {
+  @apply bg-action-secondary;
+}
+
+.secondary:disabled {
+  @apply bg-action-primary-light text-disabled pointer-events-none;
+}
+
+.whatsapp {
+  background-color: #0bbf69;
+  color: #fff;
+}
+
+.whatsapp:hover,
+.whatsapp:active {
+  background-color: #06aa5b;
+  color: #fff;
+}
+
+.danger {
+  background-color: #cb2b55;
+  color: white;
+}
+
+.danger:hover,
+.danger:active {
+  background-color: #c1254e;
+  color: white;
+}
+
+.link {
+  box-shadow: none;
+  @apply underline bg-transparent;
+}
+
+.link:hover,
+.link:active {
+  @apply underline bg-transparent;
+}
+
+.link:active {
+  box-shadow: none;
+}
+
+.link.primary {
+  @apply text-accent;
+}
+
+.link.secondary {
+  @apply text-price;
+}
+
+.link.danger {
+  @apply bg-transparent text-danger px-0;
+}
+
+.fullWidth {
+  @apply w-full justify-center;
+}

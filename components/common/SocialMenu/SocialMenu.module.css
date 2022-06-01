@@ -1,0 +1,16 @@
+.root {
+  @apply text-center space-x-6 text-white text-xl;
+  @apply md:flex md:flex-row md:justify-between;
+}
+
+.brandColor {
+  @apply text-brand;
+}
+
+.small {
+  @apply text-lg;
+}
+
+.item {
+  @apply flex-1 inline-block;
+}

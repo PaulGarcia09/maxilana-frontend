@@ -1,0 +1,5 @@
+.root {
+  border-color: #0c5e9c26;
+  @apply border-t border-b p-6 bg-white;
+  @apply sm:rounded sm:border-l sm:border-r;
+}

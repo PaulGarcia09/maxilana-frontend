@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "title": "Paga en línea",
+    "description": "Paga tu empeño, Maxilana Vales o tu prestamo personal.",
+    "image": {
+      "src": "/ilustracion-pago-online-inicio.png",
+      "alt": "Ilustración de tarjetas para pagar en línea"
+    },
+    "action": {
+      "label": "Pagar en línea",
+      "href": "/pagos"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Gana más con Maxilana Vales",
+    "description": "Conviértete en distribuidora de vales.",
+    "image": {
+      "src": "/necesitas-dinero.png",
+      "alt": "Ilustración de tarjetas para pagar en línea"
+    },
+    "action": {
+      "label": "Más información",
+      "href": "/vales"
+    }
+  },
+  {
+    "id": 3,
+    "title": "¿Necesitas dinero?",
+    "description": "Obtén un préstamo personal fácil y rápido.",
+    "image": {
+      "src": "/fotografia-hombre-sin-dinero.png",
+      "alt": "Ilustración de tarjetas para pagar en línea"
+    },
+    "action": {
+      "label": "Solicitar préstamo",
+      "href": "/prestamos-personales"
+    }
+  },
+  {
+    "id": 4,
+    "title": "Visítanos en sucursal",
+    "description": "Nuestros expertos en sucursales pueden calcular el valor justo de una amplia variedad de mercancías.",
+    "image": {
+      "src": "/ilustracion-mapa-inicio.png",
+      "alt": "Ilustración de tarjetas para pagar en línea"
+    },
+    "action": {
+      "label": "Ver sucursales",
+      "href": "/sucursales"
+    }
+  }
+]

@@ -1,0 +1,8 @@
+.root {
+  background-color: #79bdff99;
+  @apply inline-flex flex-row items-center rounded-sm p-px px-2 border border-action-primary text-primary text-sm space-x-2;
+}
+
+.closable {
+  @apply cursor-pointer;
+}

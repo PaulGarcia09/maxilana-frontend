@@ -1,0 +1,43 @@
+.root {
+  @apply block;
+}
+
+.inline {
+  @apply flex flex-row-reverse justify-end items-center;
+}
+
+.inline > .label {
+  @apply ml-2;
+}
+
+.inline > .input {
+  @apply w-auto;
+}
+
+.label {
+  @apply block mb-1 text-primary text-sm;
+  @apply hover:cursor-pointer;
+}
+
+.label > span {
+  color: #ef3a3ade;
+}
+
+.input {
+  @apply w-full rounded-sm border px-3 py-1 placeholder-gray-300;
+  @apply focus:outline-none focus:border-blue-400;
+  @apply invalid:border-red-500;
+  @apply disabled:bg-surface disabled:text-disabled;
+}
+
+.inputCode {
+  @apply w-10 h-10 text-center text-lg mx-1;
+}
+
+.input.error {
+  @apply border-red-500;
+}
+
+.errorMessage {
+  @apply block text-xs text-danger mb-1;
+}

@@ -1,0 +1,40 @@
+.root {
+  @apply relative flex flex-col items-start justify-end bg-blue-500;
+  @apply min-h-[420px];
+  @apply sm:min-h-[320px];
+  @apply md:min-h-[500px];
+}
+
+.cover {
+  @apply absolute inset-0 z-0;
+  @apply sm:h-auto sm:min-h-[320px];
+}
+
+.wrapper {
+  @apply container mx-auto px-4 relative;
+  @apply md:px-10;
+  @apply lg:px-0;
+}
+
+.body {
+  @apply py-8;
+  @apply sm:py-20;
+  @apply md:pb-32 md:max-w-2xl;
+  @apply md:pl-4;
+}
+
+.title {
+  @apply text-xl text-white mb-2;
+  @apply sm:text-3xl;
+  @apply lg:text-4xl;
+}
+
+.subtitle {
+  @apply text-white text-base mb-4;
+  @apply md:text-lg md:mb-8;
+}
+
+.actionsWrap {
+  @apply flex flex-col items-start space-y-3;
+  @apply md:flex-row md:space-y-0 md:space-x-3;
+}

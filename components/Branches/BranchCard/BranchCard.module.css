@@ -1,0 +1,33 @@
+.heading {
+  @apply flex justify-between;
+}
+
+.name {
+  @apply text-base;
+}
+
+.address {
+  @apply text-secondary;
+}
+
+.details {
+  @apply max-h-0 overflow-hidden transition-all space-y-4;
+}
+
+.toggle {
+  @apply transition-all w-8 h-8 flex items-center justify-center;
+}
+
+.expanded {
+  & .details {
+    @apply max-h-[999px];
+  }
+
+  & .toggle {
+    @apply transform -rotate-180;
+  }
+}
+
+.contactOptions {
+  @apply flex justify-around text-center;
+}

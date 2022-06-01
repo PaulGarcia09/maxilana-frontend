@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "title": "Anillo con brillantes 3.80 gramos 14 Kilates",
+    "price": 4308.45,
+    "branch": "Aeropuerto, Culiacán"
+  },
+  {
+    "id": 2,
+    "title": "Anillo con brillantes 3.80 gramos 14 Kilates",
+    "price": 4308.45,
+    "branch": "Aeropuerto, Culiacán",
+    "shipping": true
+  },
+  {
+    "id": 3,
+    "title": "Anillo con brillantes 3.80 gramos 14 Kilates",
+    "price": 5308.25,
+    "salePrice": 4308.5,
+    "onSale": true,
+    "branch": "Aeropuerto, Culiacán"
+  },
+  {
+    "id": 4,
+    "title": "Anillo con brillantes 3.80 gramos 14 Kilates",
+    "price": 5308.25,
+    "salePrice": 4308.5,
+    "onSale": true,
+    "branch": "Aeropuerto, Culiacán",
+    "shipping": true
+  },
+  {
+    "id": 5,
+    "title": "Anillo con brillantes 3.80 gramos 14 Kilates",
+    "price": 5308.25,
+    "branch": "Aeropuerto, Culiacán",
+    "shipping": true
+  },
+  {
+    "id": 6,
+    "title": "Anillo con brillantes 3.80 gramos 14 Kilates",
+    "price": 5308.25,
+    "salePrice": 4308.5,
+    "onSale": true,
+    "branch": "Aeropuerto, Culiacán"
+  },
+  {
+    "id": 7,
+    "title": "Anillo con brillantes 3.80 gramos 14 Kilates",
+    "price": 5308.25,
+    "salePrice": 4308.5,
+    "onSale": true,
+    "branch": "Aeropuerto, Culiacán"
+  },
+  {
+    "id": 8,
+    "title": "Anillo con brillantes 3.80 gramos 14 Kilates",
+    "price": 5308.25,
+    "salePrice": 4308.5,
+    "onSale": true,
+    "branch": "Aeropuerto, Culiacán"
+  },
+  {
+    "id": 9,
+    "title": "Anillo con brillantes 3.80 gramos 14 Kilates",
+    "price": 5308.25,
+    "salePrice": 4308.5,
+    "onSale": true,
+    "branch": "Aeropuerto, Culiacán"
+  },
+  {
+    "id": 10,
+    "title": "Anillo con brillantes 3.80 gramos 14 Kilates",
+    "price": 5308.25,
+    "salePrice": 4308.5,
+    "onSale": true,
+    "branch": "Aeropuerto, Culiacán"
+  }
+]

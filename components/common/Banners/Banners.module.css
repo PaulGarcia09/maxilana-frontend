@@ -1,0 +1,17 @@
+.root {
+  @apply grid gap-4 auto-rows-fr grid-flow-row-dense;
+  @apply md:grid-cols-2;
+}
+
+.item {
+  @apply relative rounded overflow-hidden min-h-[130px];
+  @apply xl:min-h-[180px];
+
+  &.Grande {
+    @apply md:col-span-2 md:row-span-2;
+  }
+
+  &.Cuadrado {
+    @apply row-span-2;
+  }
+}

@@ -1,0 +1,11 @@
+.root {
+  @apply flex flex-col space-y-8 items-center justify-center w-full text-center pt-12 md:pt-32
+}
+
+.mainText {
+  @apply text-xl font-bold block text-brand-darker/90 mt-8;
+}
+
+.secondaryText {
+  @apply text-secondary text-lg mb-12;
+}

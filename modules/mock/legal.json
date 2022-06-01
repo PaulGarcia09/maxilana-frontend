@@ -1,0 +1,14 @@
+[
+  {
+    "id": 300,
+    "label": "Contrato de adhesión",
+    "href": "/contratoadhesion.pdf",
+    "external": true
+  },
+  {
+    "id": 400,
+    "label": "Registro público de casas de empeño",
+    "href": "https://rpce.profeco.gob.mx/casa_empeno.php",
+    "external": true
+  }
+]

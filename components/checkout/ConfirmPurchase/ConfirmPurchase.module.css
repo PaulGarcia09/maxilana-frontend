@@ -1,0 +1,27 @@
+.root {
+  @apply my-8;
+  @apply sm:my-16;
+}
+
+.title {
+  @apply text-xl px-4;
+  @apply sm:px-0;
+  @apply lg:text-2xl;
+}
+
+.subtitle {
+  @apply text-lg mb-5;
+}
+
+.gridContainer {
+  @apply my-4 grid gap-6;
+  @apply lg:grid-flow-col;
+}
+
+.gridCol {
+  @apply max-w-3xl;
+}
+
+.divider {
+  @apply my-5;
+}

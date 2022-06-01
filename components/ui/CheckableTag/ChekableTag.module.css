@@ -1,0 +1,12 @@
+.root {
+  @apply inline-block rounded-full bg-white border px-2 py-1 border-brand-darker text-brand-darker cursor-pointer;
+
+  &:hover {
+    @apply bg-action-primary-light;
+  }
+}
+
+.checked,
+.checked:hover {
+  @apply bg-brand-darker text-white;
+}

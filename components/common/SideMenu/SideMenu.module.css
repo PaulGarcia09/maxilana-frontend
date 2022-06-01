@@ -1,0 +1,12 @@
+.root {
+  @apply rounded shadow-lg bg-white py-6;
+}
+
+.link {
+  @apply p-6 block mr-8 rounded-r-full;
+  @apply hover:bg-surface-light;
+}
+
+.current {
+  @apply bg-surface-dark;
+}

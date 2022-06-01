@@ -1,0 +1,19 @@
+.root {
+  @apply flex gap-3;
+}
+
+.horizontal {
+  @apply flex-row flex-wrap justify-start items-start;
+}
+
+.spacingSmall {
+  @apply gap-1.5;
+}
+
+.spacingLarge {
+  @apply gap-6;
+}
+
+.vertical {
+  @apply flex-col justify-start items-start;
+}

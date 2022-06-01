@@ -1,0 +1,12 @@
+.root {
+  @apply relative;
+  @apply hover:cursor-help;
+}
+
+.overlay {
+  @apply absolute bottom-full left-0 mb-2 bg-gray-700 text-discount p-1 max-w-[250px] text-xxs rounded-sm;
+}
+
+.arrow {
+  @apply w-[10px] h-[10px] bg-gray-700 inline-block absolute bottom-[-5px] left-1/2 transform rotate-45;
+}

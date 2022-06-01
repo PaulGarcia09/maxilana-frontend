@@ -1,0 +1,7 @@
+.root {
+  @apply p-6 mt-6 text-left border w-96 rounded;
+}
+
+.linkTitle {
+  @apply text-2xl font-bold;
+}

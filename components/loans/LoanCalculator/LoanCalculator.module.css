@@ -1,0 +1,49 @@
+.root {
+  @apply bg-white p-4 relative min-h-[560px];
+  @apply sm:rounded sm:p-6;
+}
+
+.rootLoading {
+  @apply pointer-events-none;
+}
+
+.title {
+  @apply text-center text-xl;
+}
+
+.label {
+  @apply text-primary;
+}
+
+.result {
+  @apply block my-2 text-brand text-xl font-semibold;
+}
+
+.resultSmall {
+  @apply text-lg font-normal;
+}
+
+.resultFinal {
+  @apply text-price;
+}
+
+.field {
+  @apply my-8;
+}
+
+.fieldCenter {
+  @apply text-center;
+}
+
+.split {
+  @apply flex flex-row justify-between items-center;
+}
+
+.loaderOverlay {
+  @apply absolute top-0 left-0 w-full h-full z-50 bg-white opacity-70;
+  @apply sm:rounded;
+}
+
+.loader {
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}

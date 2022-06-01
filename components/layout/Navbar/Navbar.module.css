@@ -1,0 +1,101 @@
+.root {
+  box-shadow: 0px 4px 16px rgba(18, 69, 117, 0.16);
+  @apply bg-brand py-2 sticky top-0 w-full z-20;
+}
+
+.wrapper {
+  @apply px-2 sm:px-4;
+  @apply xl:container xl:mx-auto;
+}
+
+.areas {
+  @apply flex flex-col gap-4;
+  @apply lg:flex-row;
+}
+
+.brandingArea {
+  @apply flex flex-row items-center relative space-x-3;
+}
+
+.navigationArea {
+  @apply flex-[2];
+  @apply lg:flex lg:flex-col lg:flex-col-reverse;
+}
+
+.contextualArea {
+  @apply flex-col justify-center items-center gap-2 ml-8 absolute right-4 top-3;
+  @apply lg:flex lg:static;
+}
+
+.loginLink {
+  @apply text-white text-sm leading-8;
+}
+
+.payOnlineLink {
+  @apply hidden;
+  @apply lg:inline-block;
+}
+
+.drawerTrigger {
+  @apply lg:hidden;
+}
+
+.logoWrapper {
+  @apply flex-1 flex  justify-center;
+}
+
+.logo {
+  @apply w-[127px] h-[32px] block;
+  @apply lg:ml-0 lg:mr-8;
+  @apply xl:w-[228px] xl:h-[58px];
+}
+
+.backdrop {
+  @apply fixed top-[104px] bottom-0 inset-x-0 bg-brand/60 opacity-0 transition pointer-events-none;
+  @apply lg:hidden;
+}
+
+.navigationMenu {
+  @apply flex flex-col fixed left-0 top-[104px] bottom-0 w-[200px] bg-white text-base shadow-lg;
+  @apply transform -translate-x-60 transition duration-300 transition-all overflow-y-auto;
+  @apply lg:block lg:opacity-100 lg:static lg:bg-transparent lg:shadow-none lg:w-auto lg:transform-none lg:transition-none;
+}
+
+.navigationItem {
+  @apply block py-3 px-4 text-brand;
+  @apply lg:text-white lg:inline-block lg:px-2 lg:py-0 lg:pt-2;
+
+  & a {
+    @apply transition lg:hover:text-accent;
+  }
+}
+
+.navigationItemPayment {
+  @apply lg:hidden border-t;
+}
+
+.navigationItemSocial {
+  @apply flex-1 flex justify-center items-end pb-6 lg:hidden;
+}
+
+.current {
+  @apply bg-surface-dark lg:bg-transparent;
+}
+
+.current a {
+  @apply lg:text-accent;
+}
+
+.menuControl {
+  @apply hidden;
+
+  &:checked {
+    & + .backdrop {
+      @apply opacity-100 pointer-events-auto;
+
+      & + .navigationMenu {
+        @apply translate-x-0;
+      }
+    }
+  }
+}

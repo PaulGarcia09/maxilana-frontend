@@ -1,0 +1,23 @@
+.root {
+  @apply space-x-2 flex flex-row py-4 items-center justify-center;
+}
+
+.links {
+  @apply flex flex-row space-x-2;
+}
+
+.item {
+  @apply font-bold rounded-full text-secondary text-lg inline-flex justify-center items-center w-[40px] h-[40px] ;
+}
+
+.facebook:hover {
+  @apply bg-brand text-white;
+}
+
+.twitter:hover {
+  @apply bg-action-primary text-white;
+}
+
+.whatsapp:hover {
+  @apply bg-whatsapp text-white;
+}

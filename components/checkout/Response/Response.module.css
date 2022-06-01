@@ -1,0 +1,49 @@
+.root {
+  --borderColor: #0c5e9c26;
+  @apply container mx-auto max-w-4xl my-4;
+  @apply sm:px-4;
+}
+
+.wrapper {
+  border: 1px solid var(--borderColor);
+  @apply bg-white p-4;
+  @apply sm:rounded;
+}
+
+.header {
+  @apply text-center mb-6 space-y-3;
+}
+
+.headerTitle {
+  @apply text-2xl;
+}
+
+.innerSection {
+  @apply mb-4;
+}
+
+.subtitle {
+  @apply text-lg pb-2 mb-4 border-gray-200 border-b;
+}
+
+.subheading {
+  @apply text-base;
+}
+
+.footer {
+  border-color: var(--borderColor);
+  @apply bg-white p-5 border-t w-full;
+  @apply sm:rounded sm:border;
+}
+
+.footerTitle {
+  @apply text-base mb-4;
+}
+
+.footerCopy {
+  @apply text-xs;
+}
+
+.footerCopy > a {
+  @apply text-price;
+}

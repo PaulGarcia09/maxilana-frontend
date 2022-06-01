@@ -1,0 +1,8 @@
+.root {
+  @apply block relative text-white text-sm;
+}
+
+.badge {
+  @apply absolute right-0 w-4 h-4 bg-red-600 rounded-full p-1;
+  @apply text-white text-xs inline-flex items-center justify-center;
+}

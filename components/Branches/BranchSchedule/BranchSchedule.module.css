@@ -1,0 +1,11 @@
+.heading {
+  @apply block text-xs font-bold text-brand-darker;
+}
+
+.content {
+  @apply grid grid-cols-3 gap-2 text-secondary;
+
+  & dd {
+    @apply text-right col-span-2;
+  }
+}

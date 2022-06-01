@@ -1,0 +1,46 @@
+.root {
+  @apply bg-brand p-4 sm:pt-9 xl:pt-12 pb-4;
+}
+
+.rootCompact {
+  @apply px-4 py-5;
+}
+
+.wrapper {
+  @apply container mx-auto;
+}
+
+.wrapperDefault {
+  @apply text-center sm:text-left;
+}
+
+.layoutMenu {
+  @apply flex-1;
+}
+
+.menuWrap {
+  @apply grid grid-cols-5;
+}
+
+.menuSection {
+  @apply mb-12 sm:mb-9 md:mb-0;
+}
+
+.menuTitle {
+  @apply text-base font-medium uppercase mb-4;
+  color: #ffffffb3;
+}
+
+.menuLink {
+  @apply text-sm text-white block mb-2;
+  @apply hover:text-accent;
+}
+
+.copy,
+.powered {
+  @apply block text-base text-center text-white/60;
+}
+
+.powered {
+  @apply flex items-center justify-center;
+}

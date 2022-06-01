@@ -1,0 +1,16 @@
+.root {
+  @apply relative;
+}
+
+.overlay {
+  @apply absolute top-0 left-0 w-full h-full z-10 bg-white opacity-90;
+}
+
+.body {
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full;
+  @apply flex flex-col justify-center items-center space-y-3;
+}
+
+.errorMessage {
+  @apply text-sm text-danger block text-center;
+}

@@ -1,0 +1,21 @@
+.root {
+  @apply space-y-2;
+}
+
+.image {
+  @apply aspect-[14/9] rounded border overflow-hidden;
+}
+
+.thumbnails {
+  @apply flex space-x-2 justify-center;
+}
+
+.thumbnail {
+  @apply border rounded-sm overflow-hidden w-[64px] h-[64px] transition-all hover:border-gray-400;
+  @apply md:w-[92px] md:h-[92px];
+}
+
+
+.selected {
+  @apply border-primary border-2 hover:border-primary;
+}

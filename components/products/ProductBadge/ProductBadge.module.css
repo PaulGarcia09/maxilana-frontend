@@ -1,0 +1,11 @@
+.root {
+  @apply p-1 rounded-sm text-white inline-flex items-center justify-center text-white text-lg;
+}
+
+.shop {
+  @apply bg-action-primary;
+}
+
+.car {
+  @apply bg-[#cb2b55];
+}

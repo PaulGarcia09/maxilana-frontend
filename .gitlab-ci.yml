@@ -1,0 +1,59 @@
+# https://shadowsmith.com/how-to-test-all-vercel-deployments-using-cypress-in-a-gitlab-pipeline
+stages:
+  - install
+  - lint
+  - deploy
+
+.default_image: &default_image
+  image: node:14-alpine
+
+cache: &default_cache
+  key: maxilana
+  paths:
+    - node_modules/
+
+.dev_only: &dev_only
+  rules:
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development"
+
+install:
+  stage: install
+  <<: *default_image
+  <<: *dev_only
+  cache:
+    <<: *default_cache
+    policy: push
+  script:
+    - yarn
+
+linting:
+  stage: lint
+  <<: *default_image
+  <<: *dev_only
+  cache:
+    <<: *default_cache
+    policy: pull
+  needs: [ install ]
+  script:
+    - cp .env.local.example .env
+    - ls
+    - yarn lint
+
+deploy:
+  stage: deploy
+  <<: *default_image
+  only:
+    - staging
+    - master
+  variables:
+    GIT_STRATEGY: none
+    PREVIEW_URL: $CI_PROJECT_NAME-git-$CI_COMMIT_BRANCH-$VERCEL_USER.vercel.app
+    VERCEL_WEBHOOK: $VERCEL_WEBHOOK
+  environment:
+    name: vercel/$CI_COMMIT_REF_NAME
+    url: https://$PREVIEW_URL
+  script:
+    - apk --no-cache add curl
+    - npm i -g vercel
+    - echo $PREVIEW_URL
+    - curl -s $VERCEL_WEBHOOK
