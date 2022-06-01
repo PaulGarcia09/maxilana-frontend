@@ -48,6 +48,7 @@ export default function useAccountStatus(userCode?: string) {
           SaldoPorAplicar,
           // PermitirPago,
           comision,
+          Celular,
         } = ballot;
 
         let loan = Number(Prestamo);
@@ -59,8 +60,10 @@ export default function useAccountStatus(userCode?: string) {
           roundUpToFifty(Number(ImportePagoMinimo)) * extraCharge,
         ); // PAGO MÍNIMO
         /** CÁLCULO DE PAGO DE REFRENDO */
-        paymentAmount = roundDecimals(roundUpToFifty(paymentAmount));
+        paymentAmount = roundUpToFifty(paymentAmount);
+        paymentAmount = roundDecimals(paymentAmount);
         paymentAmount = paymentAmount * extraCharge;
+        paymentAmount = roundDecimals(paymentAmount);
         /** CÁLCULO DE PAGO DE DESEMPEÑO */
         // SOLO INFORMATIVO, NO SE PUEDE PAGAR
         // ! https://docs.google.com/spreadsheets/d/1fvTCU19wyIS0uEPZ7ORA24LhJsxewq6PUVo6ZtIlh2U/edit?disco=AAAARViEeF4
@@ -97,6 +100,7 @@ export default function useAccountStatus(userCode?: string) {
           paymentPendingToApply: Number(PagoEnProceso) === 1,
           branch: Codigosucursal,
           creditBalance: Number(SaldoAFavor),
+          phoneNumber: Number(Celular),
         };
       });
     }

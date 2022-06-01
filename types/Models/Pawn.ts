@@ -1,3 +1,5 @@
+import { number } from "yup";
+
 export type PawnStatus = 'Activa' | 'Extraviada' | 'Vencida' | 'Proceso comercial';
 
 export interface PawnAccount {
@@ -27,6 +29,7 @@ export interface PawnAccount {
   extraCharge: number; //comision
   accountBlockedMessage: string; // Cuando accountBlocked es TRUE
   creditBalance?: number; //SaldoAFavor (no viene en el endpoint que se usa en pagos)
+  phoneNumber?: number;
 }
 
 export interface PawnPaymentSuccess {

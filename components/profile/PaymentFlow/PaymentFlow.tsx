@@ -17,6 +17,7 @@ type Payment = {
   amount: number;
   paymentCode: '1' | '2' | '3';
   paymentExtension: number;
+  celular: number;
 };
 
 type Transaction = {
@@ -85,7 +86,7 @@ const PawnPaymentFlow: FC<Props> = ({ status = 'idle', accounts }) => {
         paymentCode: '1',
         paymentExtension: 0,
         amount: total,
-        concept: PAYMENT_CONCEPT[0],
+        concept: PAYMENT_CONCEPT[0]
       };
 
       dispatch({ type: 'SET_PAYMENT', payload: { paymentRequest } });
@@ -137,6 +138,7 @@ const PawnPaymentFlow: FC<Props> = ({ status = 'idle', accounts }) => {
       paymentCode,
       paymentExtension,
       amount: data.paymentAmount,
+      celular: data.phoneNumber,
     };
 
     dispatch({ type: 'SET_PAYMENT', payload: { paymentRequest } });

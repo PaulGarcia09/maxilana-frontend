@@ -20,6 +20,7 @@ type Payment = {
   amount: number;
   paymentCode: '1' | '2' | '3';
   paymentExtension: number;
+  celular: number;
 };
 
 type Transaction = {
@@ -100,6 +101,7 @@ const PawnPaymentFlow: FC = () => {
       paymentCode,
       paymentExtension,
       amount: data.paymentAmount,
+      celular: data.phoneNumber
     };
 
     dispatch({ type: 'SET_PAYMENT', payload: { paymentRequest } });

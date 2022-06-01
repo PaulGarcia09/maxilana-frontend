@@ -39,6 +39,7 @@ const checkAccount = async (data: Body): Promise<PawnAccount> => {
     RefrendoPendienteAplicar,
     BoletaBloqueada,
     CodigoSucursal,
+    Celular,
   } = response;
 
   let decimal = 0;
@@ -51,20 +52,16 @@ const checkAccount = async (data: Body): Promise<PawnAccount> => {
 
   /** CÁLCULO DE PAGO DE REFRENDO */
   const interest = Number(InteresNormal) + Number(InteresVencido);
-  const diffInterest = interest - Math.round(interest);
-
-  if (diffInterest > 0) {
-    decimal = 0.5 - Math.round(diffInterest);
+  const diffInterest = interest - Math.trunc(interest);
+  decimal = diffInterest;
+  
+  if (decimal < 0.5) {
+    decimal = 0.5;
+  } else if (decimal > 0.5) {
+    decimal = 1;
   }
-
-  if (decimal === 0) {
-    paymentAmount = Math.round(interest);
-  } else if (decimal > 0) {
-    paymentAmount = interest + decimal;
-  } else {
-    paymentAmount = Math.round(interest + (0.5 + decimal));
-  }
-
+  
+  paymentAmount = Math.trunc(interest) + decimal;
   paymentAmount = roundDecimals(paymentAmount * extraCharge);
 
   /** CÁLCULO DE PAGO DE DESEMPEÑO */
@@ -114,6 +111,7 @@ const checkAccount = async (data: Body): Promise<PawnAccount> => {
     amountToAply: Number(SaldoPorAplicar),
     paymentPendingToApply: Number(RefrendoPendienteAplicar) === 1,
     branch: CodigoSucursal,
+    phoneNumber: Celular,
   };
 };
 

@@ -16,6 +16,7 @@ type FormValues = ServicePaymentRequest;
 interface PaymentData {
   concept: string;
   amount: number;
+  celular: number;
 }
 
 interface Props {
@@ -50,6 +51,7 @@ const PaymentForm: FC<Props> = ({ data, title, description, onSubmit }) => {
       initialValues={{
         importe: data.amount,
         concepto: data.concept,
+        celular: data.celular
       }}
     >
       <div className="px-4">
@@ -161,6 +163,11 @@ const PaymentForm: FC<Props> = ({ data, title, description, onSubmit }) => {
                     <InputField type="email" label="Correo Electrónico" />
                   </Form.Item>
                 </div>
+                <div className="col-span-2">
+                    <Form.Item name="celular" rules={[{ required: true}]}>
+                      <InputField type="number" label="Numeró de Celular (A este numeró se le enviará la notificación del pago)"/>
+                    </Form.Item>
+                </div> 
                 <div className="col-span-2">
                   <Button
                     fullWidth

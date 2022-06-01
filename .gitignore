@@ -46,3 +46,6 @@ netlify
 schema.graphql
 
 .gitlab-ci-local
+package-lock.json
+yarn.lock
+yarn.lock

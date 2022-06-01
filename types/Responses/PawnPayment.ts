@@ -32,6 +32,7 @@ interface PawnAccountResponse {
   DiasPagoMinimo: string; //number
   comision: string; // number
   Mensaje?: string; // Solo aparece cuando la boleta está bloqueada
+  Celular?: number;
 }
 
 export type { PawnAccountResponse };

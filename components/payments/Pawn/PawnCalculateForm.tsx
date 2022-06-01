@@ -18,6 +18,7 @@ type FormValues = {
   paymentType: 'REFRENDO' | 'ABONO' | 'OTRO-ABONO';
   paymentAmount?: number;
   paymentExtension?: number;
+  phoneNumber?: number;
 };
 
 interface Props {
@@ -30,6 +31,8 @@ const LOCALE = 'es-MX';
 
 const PawnCalculateForm: FC<Props> = ({ data, onSubmit }) => {
   const [form] = Form.useForm();
+  
+  let phoneNumber = data.phoneNumber;
 
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<string | null>(null);
@@ -95,7 +98,7 @@ const PawnCalculateForm: FC<Props> = ({ data, onSubmit }) => {
       }
 
       setStatus('idle');
-      await onSubmit({ paymentType, paymentExtension, paymentAmount: amount });
+      await onSubmit({ paymentType, paymentExtension, paymentAmount: amount, phoneNumber });
     } catch (err) {
       setError((err as AxiosError).message);
       setStatus('idle');
@@ -110,6 +113,7 @@ const PawnCalculateForm: FC<Props> = ({ data, onSubmit }) => {
         paymentType: 'REFRENDO',
         paymentAmount: data.minPaymentAmount,
         paymentExtension: data.minDaysToPay,
+        phoneNumber: data.phoneNumber,
       }}
       onValuesChange={(changedValues) => {
         if (changedValues?.paymentExtension) {
