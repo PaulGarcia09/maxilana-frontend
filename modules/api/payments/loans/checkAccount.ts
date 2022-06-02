@@ -15,9 +15,13 @@ const checkLoanAccount = async (data: Body): Promise<LoanAccount> => {
   if (response.strMensaje !== '') {
     throw new Error(response.strMensaje);
   }
-
-  const { strNombreCliente, dblMontoLiquidaCon, dblMontoAlCorriente, strFechaVencimiento } =
-    response;
+  const {
+    strNombreCliente,
+    dblMontoLiquidaCon,
+    dblMontoAlCorriente,
+    strFechaVencimiento,
+    Celular,
+  } = response;
 
   return {
     minPayment: dblMontoAlCorriente,
@@ -25,6 +29,7 @@ const checkLoanAccount = async (data: Body): Promise<LoanAccount> => {
     clientCode: data.codigoprestamo,
     clientName: strNombreCliente,
     dueDate: strFechaVencimiento,
+    phoneNumber: Celular,
   };
 };
 

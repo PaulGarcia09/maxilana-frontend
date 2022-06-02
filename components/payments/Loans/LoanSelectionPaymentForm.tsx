@@ -22,10 +22,8 @@ const LoanSelectionPaymentForm: FC<Props> = ({ account, onSubmit }) => {
   const [form] = Form.useForm<FormValues>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
   const { price: settleAmount } = usePrice({ amount: account.settlePayment });
   const { price: minimumAmount } = usePrice({ amount: account.minPayment });
-
   const handleFormSubmit = async (data: FormValues) => {
     setLoading(true);
     const { fixedAmount, customAmount } = data;

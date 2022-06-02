@@ -6,6 +6,7 @@ interface LoanAccountResponse {
   strFechaVencimiento: string;
   strMensaje: string;
   comision: string; //number
+  Celular: string; //number
 }
 
 export type { LoanAccountResponse };
