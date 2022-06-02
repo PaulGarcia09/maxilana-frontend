@@ -17,6 +17,7 @@ type Status = 'idle' | 'select_payment' | 'confirm_payment' | 'submit_payment';
 type Payment = {
   concept: string;
   amount: number;
+  celular: number;
 };
 
 type Transaction = {
@@ -77,6 +78,7 @@ const LoanPaymentFlow: FC = () => {
     const paymentRequest = {
       amount,
       concept: `ABONO A PRÉSTAMO NÚMERO ${state?.account?.clientCode}`,
+      celular: state.account?.phoneNumber,
     };
 
     dispatch({ type: 'CONFIRM_PAYMENT', payload: { paymentRequest } });

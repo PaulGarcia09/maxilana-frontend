@@ -26,7 +26,6 @@ const ResumeList: FC<Props> = ({ data }) => {
   let strTotalDesempeno = ''; //;
   let strTotalPrestamo = ''; //;
   let strTotalRefrendo = ''; //;
-  console.log(ballots);
   ballots.forEach((ball) => {
     totalRef = totalRef + ball.paymentAmount;
     strTotalRefrendo = formatPrice({ amount: totalRef, locale: LOCALE });
