@@ -4,6 +4,7 @@ interface CouponAccountResponse {
   strNombreDistribuidor: string;
   strQuincena: string;
   strMensaje: string;
+  Celular: string;
 }
 
 export type { CouponAccountResponse };

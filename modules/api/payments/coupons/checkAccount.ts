@@ -16,13 +16,14 @@ const checkCouponAccount = async (data: Body): Promise<CouponAccount> => {
     throw new Error(response.strMensaje);
   }
 
-  const { dblMontoACobrar, strNombreDistribuidor, strQuincena } = response;
+  const { dblMontoACobrar, strNombreDistribuidor, strQuincena, Celular } = response;
 
   return {
     partnerNumber: data.numdistribuidor,
     clientName: strNombreDistribuidor,
     amount: dblMontoACobrar,
     currentDate: strQuincena,
+    phoneNumber: Celular,
   };
 };
 

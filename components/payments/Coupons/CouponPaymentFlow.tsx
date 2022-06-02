@@ -19,6 +19,7 @@ type Status = 'idle' | 'check_payment' | 'confirm_payment' | 'submit_payment';
 type Payment = {
   concept: string;
   amount: number;
+  celular: number;
 };
 
 type Transaction = {
@@ -81,6 +82,7 @@ const CouponPaymentFlow: FC = () => {
     const paymentRequest = {
       amount,
       concept: `${PAYMENT_CONCEPT} #${state.account?.partnerNumber}`,
+      celular: state.account?.phoneNumber,
     };
 
     dispatch({ type: 'CONFIRM_PAYMENT', payload: { paymentRequest } });
