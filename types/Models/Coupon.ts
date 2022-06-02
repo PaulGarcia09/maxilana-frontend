@@ -3,4 +3,5 @@ export interface CouponAccount {
   clientName: string;
   currentDate: string;
   partnerNumber: string;
+  phoneNumber: string;
 }

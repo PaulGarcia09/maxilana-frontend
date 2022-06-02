@@ -20,7 +20,6 @@ interface Props {
 
 const CouponCheckPaymentForm: FC<Props> = ({ account, onSubmit }) => {
   const [form] = Form.useForm<FormValues>();
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { price: paymentAmount } = usePrice({ amount: account.amount });
