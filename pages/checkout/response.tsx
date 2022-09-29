@@ -1,4 +1,5 @@
 import { AxiosError } from 'axios';
+import { useEffect } from 'react';
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next';
 
 import { BareLayout } from '~/components/layout';
@@ -21,9 +22,10 @@ type SSRProps = {
 export const getServerSideProps: GetServerSideProps<SSRProps> = async (context) => {
   try {
     const { query } = context;
+
     const cartToken: string = (query?.oid as string) ?? undefined;
 
-    const validation = await validatePayment(context);
+    const validation = await validatePayment(context, query?.cardtype);
 
     if (validation?.redirect) {
       return {
@@ -58,7 +60,12 @@ export const getServerSideProps: GetServerSideProps<SSRProps> = async (context) 
       orden: cartToken,
     };
 
-    const order = await request2DTransaction(request2D);
+    const order = await request2DTransaction(
+      request2D,
+      query?.token,
+      query?.cardtype,
+      query?.total,
+    );
 
     return {
       props: {

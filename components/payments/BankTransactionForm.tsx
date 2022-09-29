@@ -39,16 +39,27 @@ const BankTransactionForm: FC<Props> = ({ transaction, payment, forwardPath }) =
 
   return (
     <form ref={formRef} method="POST" action={process.env.NEXT_PUBLIC_PAYMENT_URL}>
-      <input type="hidden" name="Card" value={payment.tarjeta} />
-      <input type="hidden" name="Expires" value={payment.vencimiento} />
-      <input type="hidden" name="Total" value={payment.importe} />
-      <input type="hidden" name="CardType" value={payment.cardtype} />
-      <input type="hidden" name="MerchantId" value={transaction.merchanid} />
-      <input type="hidden" name="MerchantName" value={transaction.merchanname} />
-      <input type="hidden" name="MerchantCity" value={transaction.merchancity} />
-      <input type="hidden" name="ForwardPath" value={forwardPath} />
-      <input type="hidden" name="Cert3D" value="03" />
-      <input type="hidden" name="Reference3D" value={transaction.id} />
+      <input type="hidden" name="CARD_NUMBER" value={payment.tarjeta} />
+      <input type="hidden" name="CARD_EXP" value={payment.vencimiento} />
+      <input type="hidden" name="AMOUNT" value={payment.importe} />
+      <input type="hidden" name="CARD_TYPE" value={payment.cardtype} />
+      <input type="hidden" name="MERCHANT_ID" value={transaction.Resultado.merchanid} />
+      <input type="hidden" name="MERCHANT_NAME" value={transaction.Resultado.merchanname} />
+      <input type="hidden" name="MERCHANT_CITY" value={transaction.Resultado.merchancity} />
+      <input type="hidden" name="FORWARD_PATH" value={forwardPath} />
+      <input type="hidden" name="3D_CERTIFICATION" value="03" />
+      <input type="hidden" name="REFERENCE3D" value={transaction.Resultado.id} />
+      <input type="hidden" name="CITY" value={payment.ciudad} />
+      <input type="hidden" name="COUNTRY" value={payment.pais} />
+      <input type="hidden" name="EMAIL" value={payment.email} />
+      <input type="hidden" name="NAME" value={payment.nombre} />
+      <input type="hidden" name="LAST_NAME" value={payment.apellido} />
+      <input type="hidden" name="POSTAL_CODE" value={payment.cp} />
+      <input type="hidden" name="STATE" value={payment.estado} />
+      <input type="hidden" name="STREET" value={payment.calle} />
+      <input type="hidden" name="MOBILE_PHONE" value={payment.celular} />
+      <input type="hidden" name="CREDIT_TYPE" value={payment.tipotarjeta} />
+      <input type="hidden" name="THREED_VERSION" value="2" />
     </form>
   );
 };

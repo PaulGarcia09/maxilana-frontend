@@ -29,6 +29,7 @@ type Transaction = {
 
 type State = {
   status: Status;
+  token: string;
   account: CouponAccount | null;
   paymentRequest: Payment | null;
   transactionRequest: Transaction | null;
@@ -38,6 +39,7 @@ const PAYMENT_CONCEPT = 'ABONO A LÍNEA DE CRÉDITO DIST.';
 
 const initialState: State = {
   status: 'idle',
+  token: '',
   account: null,
   paymentRequest: null,
   transactionRequest: null,
@@ -64,6 +66,11 @@ const reducer = (state: State, action: any): State => {
         ...state,
         status: 'submit_payment',
         transactionRequest: payload.transactionRequest,
+      };
+    case 'SUBMIT_TOKEN':
+      return {
+        ...state,
+        token: payload.token,
       };
     default:
       return initialState;
@@ -100,8 +107,9 @@ const CouponPaymentFlow: FC = () => {
       ...rest,
       cdistribuidora: account.partnerNumber,
     };
-
     const maxilanaTransaction = await requestCoupon3DTransaction(paymentRequest);
+
+    dispatch({ type: 'SUBMIT_TOKEN', payload: { token: maxilanaTransaction.JsonWebToken } });
 
     const transactionRequest = {
       payment: paymentRequest,
@@ -128,6 +136,7 @@ const CouponPaymentFlow: FC = () => {
           data={state.paymentRequest}
           description="Paga directamente a tu distribuidora"
           onSubmit={handleSubmitPayment}
+          showSubmitButton={true}
         />
       )}
       {state.status === 'submit_payment' && state.transactionRequest && (
@@ -135,7 +144,7 @@ const CouponPaymentFlow: FC = () => {
           {state.transactionRequest !== null && (
             <BankTransactionForm
               {...state.transactionRequest}
-              forwardPath={`${window.location.origin}/pagos/respuesta?type=coupons`}
+              forwardPath={`${window.location.origin}/pagos/respuesta?type=coupons&token=${state.token}&cardtype=${state.transactionRequest.payment.cardtype}`}
             />
           )}
         </PageLoader>

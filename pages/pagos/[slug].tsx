@@ -1,6 +1,6 @@
 import ms from 'ms';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 import getAllLegalPages from '~/api/cms/getAllLegalPages';
 import getPaymentsList from '~/api/cms/getPayments';
 import getAllCities from '~/api/getAllCities';
@@ -60,6 +60,9 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const PaymentPage: NextPage<Props> = ({ cities, legalPages, payment }) => {
   const { component } = paymentTypes[payment.type];
+  useEffect(() => {
+    console.log(payment);
+  }, []);
   return (
     <Layout meta={{ ...payment?.seo }} cities={cities} legalPages={legalPages}>
       <div className="container mx-auto py-6">

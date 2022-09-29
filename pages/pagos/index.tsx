@@ -11,22 +11,23 @@ import { DefaultPageProps } from '~/types/DefaultPageProps';
 import { CMSPayment } from '~/types/Models';
 import getCMSImageURL from '~/utils/getCMSImageURL';
 
-export const getStaticProps: GetStaticProps<DefaultPageProps<{ payments: CMSPayment[] }>> =
-  async () => {
-    const [cities, legalPages, payments] = await Promise.all([
-      getAllCities(),
-      getAllLegalPages(),
-      getPaymentsList(),
-    ]);
-    return {
-      props: {
-        cities,
-        legalPages,
-        payments,
-      },
-      revalidate: ms(process.env.DEFAULT_REVALIDATE || '10m') / 1000,
-    };
+export const getStaticProps: GetStaticProps<
+  DefaultPageProps<{ payments: CMSPayment[] }>
+> = async () => {
+  const [cities, legalPages, payments] = await Promise.all([
+    getAllCities(),
+    getAllLegalPages(),
+    getPaymentsList(),
+  ]);
+  return {
+    props: {
+      cities,
+      legalPages,
+      payments,
+    },
+    revalidate: ms(process.env.DEFAULT_REVALIDATE || '10m') / 1000,
   };
+};
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -34,7 +35,7 @@ const PaymentsPage: NextPage<Props> = ({ cities, legalPages, payments }) => {
   return (
     <Layout
       meta={{
-        title: 'Paga online online directamente a tu distribuidora',
+        title: 'Paga online directamente a tu distribuidora',
         description: 'Ahora puedes pagar nuestros servicios desde la comodidad de tu casa.',
       }}
       cities={cities}

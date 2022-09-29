@@ -5,6 +5,7 @@ import { ConfirmPurchase } from '~/components/checkout';
 import useCart from '~/hooks/cart/useCart';
 import { Button } from '~/components/ui';
 import { EmptyCart } from '~/components/svg';
+import { CheckOutFlow } from '../../components/checkout/CheckOutFlow';
 
 export const getStaticProps: GetStaticProps<{ css: string[] }> = () => {
   return { props: { css: ['/antd/form.css'] } };
@@ -15,7 +16,8 @@ const CheckoutPage: NextPage = () => {
   return (
     <BareLayout title="Confirmar Compra">
       {data && !isEmpty ? (
-        <ConfirmPurchase cart={data} />
+        // <ConfirmPurchase cart={data} />
+        <CheckOutFlow cart={data} />
       ) : (
         <div className="container mx-auto py-48 sm:max-w-5xl">
           <div className="text-center space-y-4">

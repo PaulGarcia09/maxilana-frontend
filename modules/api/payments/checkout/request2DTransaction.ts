@@ -1,4 +1,5 @@
 import maxAxios from '~/api/axios';
+import Axios from 'axios';
 import { CheckoutResponse } from '~/types/Models';
 import { PaymentTransactionRequest } from '~/types/Requests';
 import { MaxilanaCheckout2DResponse } from '~/types/Responses';
@@ -8,12 +9,23 @@ interface Body extends PaymentTransactionRequest {
   orden: string;
 }
 
-const request2DTransaction = async (data: Body): Promise<CheckoutResponse> => {
-  const response = await maxAxios.post<MaxilanaCheckout2DResponse>(
-    '/procesar2dsecure/web/productos',
+const request2DTransaction = async (
+  data: Body,
+  token: any,
+  cardtp: any,
+  amount: any,
+): Promise<CheckoutResponse> => {
+  data.cardtype = cardtp;
+  data.total = amount;
+  // const axTest = Axios.create({ baseURL: 'http://127.0.0.1:3050/api'})
+  const response: any = await maxAxios.post<MaxilanaCheckout2DResponse>(
+    '/pagos/2dsecure/web/producto',
     data,
     {
-      timeout: 10000,
+      headers: {
+        authorization: token,
+      },
+      timeout: 60000,
       timeoutErrorMessage:
         'No fue posible obtener una respuesta del servidor. Tu pago no ha sido procesado.',
     },
@@ -27,7 +39,7 @@ const request2DTransaction = async (data: Body): Promise<CheckoutResponse> => {
     );
   }
 
-  const { referencia, datosenvio } = response;
+  const { referencia, datosenvio } = response.data;
 
   return {
     reference: referencia,

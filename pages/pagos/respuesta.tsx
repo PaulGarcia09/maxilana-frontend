@@ -5,13 +5,16 @@ import { BareLayout } from '~/components/layout';
 import { PaymentError, PaymentSuccess } from '~/components/payments';
 import validatePayment from '~/utils/validatePayment';
 import {
+  request2DTransaction,
   requestCoupon2DTransaction,
   requestLoan2DTransaction,
   requestPawn2DTransaction,
 } from '~/api/payments';
-import { Pawn2DRequest } from '~/types/Requests';
+import { Pawn2DRequest, PaymentTransactionRequest } from '~/types/Requests';
+import { PaymentRequest } from '../../components/checkout/Types/CheckOutTypes';
 import { ErrorCodes, PawnPaymentSuccess } from '~/types/Models';
 import { PaymentError as PaymentErrorType } from '~/utils/errors';
+import { useEffect } from 'react';
 
 interface SSRProps {
   error?: boolean;
@@ -24,7 +27,7 @@ export const getServerSideProps: GetServerSideProps<SSRProps> = async (context) 
 
   try {
     let response;
-    const validation = await validatePayment(context);
+    const validation = await validatePayment(context, query?.cardtype);
 
     if (validation?.redirect) {
       return {
@@ -44,11 +47,10 @@ export const getServerSideProps: GetServerSideProps<SSRProps> = async (context) 
     }
 
     const request2D = validation.transaction;
-
     if (query?.type === 'coupons') {
-      response = await requestCoupon2DTransaction(request2D);
+      response = await requestCoupon2DTransaction(request2D, query?.token, query?.cardtype);
     } else if (query?.type === 'loans') {
-      response = await requestLoan2DTransaction(request2D);
+      response = await requestLoan2DTransaction(request2D, query?.token, query?.cardtype);
     } else if (query?.type === 'pawns') {
       // ASÍ ME LO PIDEN...
       const pawn2DRequest = {
@@ -56,8 +58,9 @@ export const getServerSideProps: GetServerSideProps<SSRProps> = async (context) 
         Cliente: query?.client,
         total: query?.total ? Number(query?.total) : undefined,
       } as Pawn2DRequest;
-
-      response = await requestPawn2DTransaction(pawn2DRequest);
+      response = await requestPawn2DTransaction(pawn2DRequest, query?.token, query?.cardtype);
+    } else if (query?.type === 'prod') {
+      // response = await request2DTransaction(request2D, query?.token, query?.card)
     }
 
     return {

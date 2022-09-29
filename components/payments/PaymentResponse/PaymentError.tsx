@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { CloseCircleTwoTone } from '@ant-design/icons';
 
 import { Button } from '~/components/ui';
@@ -13,6 +13,9 @@ interface Props {
 }
 
 const PaymentError: FC<Props> = ({ code = '0' }) => {
+  useEffect(() => {
+    console.log({ errorcode: code });
+  }, []);
   return (
     <section className="py-10">
       <div className={styles.root}>

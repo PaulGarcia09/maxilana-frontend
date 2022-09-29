@@ -15,7 +15,10 @@ type Validation = {
  * Función que valida la respuesta del banco cuando se realiza un pago
  * Si ocurre algún error, lanza una excepción del tipo PaymentError
  */
-const validatePayment = async (context: GetServerSidePropsContext): Promise<Validation> => {
+const validatePayment = async (
+  context: GetServerSidePropsContext,
+  cardtype: any,
+): Promise<Validation> => {
   const { query, req } = context;
 
   // PETICIÓN INTERNA
@@ -49,14 +52,14 @@ const validatePayment = async (context: GetServerSidePropsContext): Promise<Vali
   //  REVISAMOS STATUS Y RESPUESTA
   if (
     paymentrequest.status !== '200' ||
-    !paymentrequest?.cavv ||
-    !paymentrequest?.eci ||
-    !paymentrequest?.xid
+    !paymentrequest.cavv ||
+    !paymentrequest.eci ||
+    (!paymentrequest.xid && cardtype !== 'MC')
   ) {
     throw new PaymentError(
       'Error en 3DTransaction',
       'El banco regresó un error y no es posible procesar la transacción',
-      (paymentrequest?.status as ErrorCodes) ?? '200',
+      (paymentrequest.status as ErrorCodes) ?? '200',
     );
   }
 

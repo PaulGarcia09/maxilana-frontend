@@ -27,6 +27,7 @@ type Transaction = {
 
 type State = {
   status: Status;
+  token: string;
   account: LoanAccount | null;
   paymentRequest: Payment | null;
   transactionRequest: Transaction | null;
@@ -34,6 +35,7 @@ type State = {
 
 const initialState: State = {
   status: 'idle',
+  token: '',
   account: null,
   paymentRequest: null,
   transactionRequest: null,
@@ -60,6 +62,11 @@ const reducer = (state: State, action: any): State => {
         ...state,
         status: 'submit_payment',
         transactionRequest: payload.transactionRequest,
+      };
+    case 'SUBMIT_TOKEN':
+      return {
+        ...state,
+        token: payload.token,
       };
     default:
       return initialState;
@@ -103,6 +110,9 @@ const LoanPaymentFlow: FC = () => {
 
     const maxilanaTransaction = await requestLoan3DTransaction(paymentRequest);
 
+    dispatch({ type: 'SUBMIT_TOKEN', payload: { token: maxilanaTransaction.JsonWebToken } });
+
+    console.log(maxilanaTransaction);
     const transactionRequest = {
       payment: paymentRequest,
       transaction: maxilanaTransaction,
@@ -128,6 +138,7 @@ const LoanPaymentFlow: FC = () => {
           title="Préstamos personales"
           description="Abona a tu préstamo personal en línea"
           onSubmit={handleSubmitPayment}
+          showSubmitButton={true}
         />
       )}
       {state.status === 'submit_payment' && state.transactionRequest && (
@@ -135,7 +146,7 @@ const LoanPaymentFlow: FC = () => {
           {state.transactionRequest !== null && (
             <BankTransactionForm
               {...state.transactionRequest}
-              forwardPath={`${window.location.origin}/pagos/respuesta?type=loans`}
+              forwardPath={`${window.location.origin}/pagos/respuesta?type=loans&token=${state.token}&cardtype=${state.transactionRequest.payment.cardtype}`}
             />
           )}
         </PageLoader>
